@@ -1,0 +1,67 @@
+body {
+    font-family: 'Georgia', serif;
+    background: url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #3e2f1c;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 48px;
+    text-align: center;
+    color: #fff3e0;
+    background-color: rgba(110, 70, 20, 0.8);
+    padding: 20px;
+    margin: 0;
+    border-bottom: 4px solid #8d6e63;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Courier New', monospace;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 245, 0.92);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(80, 40, 20, 0.5);
+}
+
+form, .productos {
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+button {
+    background-color: #8d6e63;
+    color: #fff;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #5d4037;
+}
+
+.producto {
+    background-color: #f1ebe4;
+    border: 1px solid #d7ccc8;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+}

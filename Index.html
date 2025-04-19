@@ -1,0 +1,120 @@
+
+
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>La Tranquera 🌾</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            color: #3e2f1c;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 4px #fff;
+        }
+
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            width: 320px;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            margin: 5px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #7da96d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #5b8650;
+        }
+
+        .productos {
+            margin-top: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .producto {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px; /* Menos espacio entre productos */
+            padding: 4px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .producto form {
+            margin: 0;
+        }
+
+        .producto button {
+            background-color: transparent;
+            color: #d9534f;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 2px 6px;
+        }
+
+        .producto button:hover {
+            color: #c9302c;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>🌾 La Tranquera 🌾</h1>
+    <form method="POST">
+        <input type="text" name="producto" placeholder="Nombre del producto" required>
+        <input type="number" step="0.01" name="precio" placeholder="Precio" required>
+        <button type="submit">➕ Agregar producto</button>
+    </form>
+
+    <form method="GET">
+        <input type="text" name="busqueda" placeholder="Buscar producto">
+        <button type="submit">🔍 Buscar</button>
+    </form>
+
+    <div class="productos">
+        {% for producto, precio in productos.items() %}
+            <div class="producto">
+                <span>{{ producto }}: ${{ "%.2f"|format(precio) }}</span>
+                <form method="POST" action="/eliminar">
+                    <input type="hidden" name="producto" value="{{ producto }}">
+                    <button type="submit">🗑️</button>
+                </form>
+            </div>
+        {% endfor %}
+        {% if not productos %}
+            <p>📭 No hay productos cargados.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
